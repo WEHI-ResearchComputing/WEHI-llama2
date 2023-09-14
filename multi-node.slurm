@@ -35,3 +35,10 @@ srun torchrun --rdzv_id $RANDOM --rdzv_backend c10d \
         example_chat_completion.py --ckpt_dir /vast/projects/RCP/WEHI-llama2/70B/  \
         --tokenizer_path /vast/projects/RCP/WEHI-llama2/tokenizer.model \
         --max_seq_len 512 --max_batch_size 6
+
+
+srun torchrun --rdzv_id $RANDOM --rdzv_backend c10d \
+        --rdzv_endpoint $MASTER_ADDR:$MASTER_PORT --nproc-per-node 4 --nnodes 2 \
+        example_text_completion.py \
+        --max_seq_len 128 --max_batch_size 4 --ckpt_dir /vast/projects/RCP/WEHI-llama2/llama-2-70b/  \
+        --tokenizer_path /vast/projects/RCP/WEHI-llama2/tokenizer.model
