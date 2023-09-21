@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#SBATCH --job-name=inf-13b-2nodes
+#SBATCH --job-name=inf-70b-2nodes
 #SBATCH --time 2:00:00
 #SBATCH --ntasks=2
 #SBATCH --cpus-per-task=10
@@ -9,7 +9,7 @@
 # SBATCH --gpus-per-task=1
 #SBATCH --partition=gpuq
 #SBATCH --gres=gpu:A30:4 
-#SBATCH --output=slurm.out
+#SBATCH --output=slurm_70b.out
 #SBATCH -q bonus
 
 
@@ -32,7 +32,7 @@ micromamba activate llm
 ### the command to run
 srun torchrun --rdzv_id $RANDOM --rdzv_backend c10d \
         --rdzv_endpoint $MASTER_ADDR:$MASTER_PORT --nproc-per-node 4 --nnodes 2 \
-        example_chat_completion.py --ckpt_dir /vast/projects/RCP/WEHI-llama2/70B/  \
+        example_chat_completion.py --ckpt_dir /vast/projects/RCP/WEHI-llama2/llama-2-70b-chat/  \
         --tokenizer_path /vast/projects/RCP/WEHI-llama2/tokenizer.model \
         --max_seq_len 512 --max_batch_size 6
 
