@@ -60,7 +60,7 @@ A:
 A: 
 The Llama models thus far have been mainly focused on the English language. We are looking at true multi-linguality for the future but for now there are a lot of community projects that fine tune Llama models to support languages.
 
-**Q: How do can we fine tune the Llama 2 models?**
+**Q: How can I fine tune the Llama 2 models?**
 
 A: 
 You can find examples on how to fine tune the Llama 2 models in the [Llama Recipes repository](https://github.com/facebookresearch/llama-recipes). 
@@ -69,3 +69,7 @@ You can find examples on how to fine tune the Llama 2 models in the [Llama Recip
 
 A: 
 You can adapt the finetuning script found [here](https://github.com/facebookresearch/llama-recipes/blob/main/llama_finetuning.py) for pretraining. You can also find the hyperparams used for pretraining in Section 2 of [the LLama 2 paper](https://arxiv.org/pdf/2307.09288.pdf).
+
+**Q: Am I allowed a develop derivative models through fine-tuning based on Llama 2 for languages other than english? Is this a violation of the acceptable use policy?**
+
+A: Developers may fine-tune Llama 2 models for languages beyond English provided they comply with the Llama 2 Community License and the Acceptable Use Policy.
