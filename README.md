@@ -9,7 +9,9 @@ This repository is intended as a minimal example to load [Llama 2](https://ai.me
 ## Running on Milton
 A conda env has already been set at `/stornext/System/data/apps/rc-tools/rc-tools-1.0/bin/tools/envs/llm`
 
-And the model checkpoints are available too.
+And the model checkpoints are available at `/stornext/System/data/apps/rc-tools/rc-tools-1.0/bin/tools/llama2`
+
+There are also eaxple slurm submission scripts for single (`Example_single-node.slurm`) and multiple nodes (`Example_multi-node.slurm`).
 
 ## Updates post-launch
 
