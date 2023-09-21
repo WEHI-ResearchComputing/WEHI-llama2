@@ -6,6 +6,13 @@ from typing import List, Optional
 import fire
 
 from llama import Llama, Dialog
+import sys, os
+
+def check_if_torchrun():
+    if "RANK" in os.environ:
+        return int(os.environ["RANK"])
+    else:
+        return -1 # not in torchrun
 
 
 def main(
@@ -32,6 +39,11 @@ def main(
         max_gen_len (int, optional): The maximum length of generated sequences. If None, it will be
             set to the model's max sequence length. Defaults to None.
     """
+
+    # send output to /dev/null if global rank is non-zero
+    if check_if_torchrun() > 0:
+        sys.stdout = open(os.devnull, "w")
+
     generator = Llama.build(
         ckpt_dir=ckpt_dir,
         tokenizer_path=tokenizer_path,

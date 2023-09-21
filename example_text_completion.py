@@ -5,6 +5,13 @@ import fire
 
 from llama import Llama
 from typing import List
+import sys, os
+
+def check_if_torchrun():
+    if "RANK" in os.environ:
+        return int(os.environ["RANK"])
+    else:
+        return -1
 
 def main(
     ckpt_dir: str,
@@ -29,6 +36,11 @@ def main(
         max_gen_len (int, optional): The maximum length of generated sequences. Defaults to 64.
         max_batch_size (int, optional): The maximum batch size for generating sequences. Defaults to 4.
     """ 
+    
+    # send output to /dev/null if global rank is non-zero
+    if check_if_torchrun() > 0:
+        sys.stdout = open(os.devnull, "w")
+        
     generator = Llama.build(
         ckpt_dir=ckpt_dir,
         tokenizer_path=tokenizer_path,
