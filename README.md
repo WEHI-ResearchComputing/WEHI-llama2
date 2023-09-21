@@ -6,6 +6,11 @@ This release includes model weights and starting code for pretrained and fine-tu
 
 This repository is intended as a minimal example to load [Llama 2](https://ai.meta.com/research/publications/llama-2-open-foundation-and-fine-tuned-chat-models/) models and run inference. For more detailed examples leveraging Hugging Face, see [llama-recipes](https://github.com/facebookresearch/llama-recipes/).
 
+## Running on Milton
+A conda env has already been set at `/stornext/System/data/apps/rc-tools/rc-tools-1.0/bin/tools/envs/llm`
+
+And the model checkpoints are available too.
+
 ## Updates post-launch
 
 See [UPDATES.md](UPDATES.md). Also for a running list of frequently asked questions, see [here](https://github.com/facebookresearch/llama/blob/main/FAQ.md).
